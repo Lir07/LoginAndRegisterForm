@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="LoginForm.css">
 </head>
 <body>
-    <form class="login-form" id="myForm">
+      <h1>Login</h1>
+      <form class="login-form" id="myForm">
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" class="form-control" id="username" placeholder="Username">
@@ -21,8 +22,10 @@
           <label id="p-error" for="password"></label>
         </div>
         
-        <button type="submit" onclick="verifyUsername()" class="btn btn-primary" id="btn">Submit</button>
+        <button type="submit"  class="btn btn-primary" id="submit">Submit</button>
       </form>
+
+      <a href="Excersise/register.html"  class="btn btn-primary" id="register">Register</button>
     <script src="LoginForm.js"></script>
 </body>
 </html>

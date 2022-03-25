@@ -1,75 +1,135 @@
-document.getElementById('form').addEventListener('submit', function(e){
+function verifyEmri(e) {
     e.preventDefault();
-})
+    var emriEl;
+    emriEl = document.getElementById("name").value;
 
-var obj=document.getElementsByClassName('writable');
-//[ element1, element2, element3, element4]
+    var lblEl = document.getElementById("name-error");
 
-//element1.innerHTML=''
-//element2.innerHTML=''
-//element3.innerHTML=''
-//element4.innerHTML=''
-// obj[0].addEventListener('keyup',function(e){
-
-// })
-// obj[1].addEventListener('keyup',function(e){
-
-// })
-// obj[2].addEventListener('keyup',function(e){
-
-// })
-// obj[3].addEventListener('keyup',function(e){
-
-// })
-var data={}
-// data['name']='arber'
-
-for(var element of obj){
-    element.addEventListener('keyup',function(e){
-        data[e.target.name]=e.target.value
-        if(e.target.name === 'password' ||e.target.name == 'confirmation-password' )
-            PasswordValidation(e.target.value)
-
-        
-            for(var i=0;i<12;i++){
-                
-            }
-
-        if(['password','confirmation-password'].forEach())
-            PasswordValidation(e.target.value)
-        
-        if(e.target.name === 'username')
-            UsernameValidation(e.target.value)
-    })
-}
-
-function UsernameValidation(value){
-    var tekstReg=/^[]+$/
-    var lbl=document.getElementById('usernameLbl')
-    var message='';
-    var color='';
-    if(!tekstReg.test(value)){
-        message='Username nuk eshte valid.'
-        color="red"
-        lbl.classList.remove('hidden')
+    if (emriEl != "") {
+        lblEl.textContent = "";
     }
-
-    lbl.innerHTML=message;
-    lbl.style.color=color;
-}
-function PasswordValidation(value){
-    
+    else {
+        lblEl.textContent = "Emri invalid";
+        lblEl.style.color = "red";
+    }
 }
 
+function verifyMbiemri(e) {
+    e.preventDefault();
+    var mbiemriEl;
+    mbiemriEl = document.getElementById("mbiemri").value;
+
+    var lblEl = document.getElementById("mbiemri-error");
+
+    if (mbiemriEl != "") {
+        lblEl.textContent = "";
+    }
+    else {
+        lblEl.textContent = "Mbiemri invalid";
+        lblEl.style.color = "red";
+    }
+}
+
+var verifyUsername = function (e) {
+    e.preventDefault();
+    var username;
+    username = document.getElementById("username").value;
+
+    var lblEl = document.getElementById("username-error");
+
+    if (username != "") {
+        lblEl.textContent = "";
+    }
+    else {
+        lblEl.textContent = "Username invalid";
+        lblEl.style.color = "red";
+    }
+}
+
+var verifyEmail = function (e) {
+    e.preventDefault();
+    var email;
+    email = document.getElementById("email").value;
+
+    var tekstReg = /^\S+@\S+\.\S+$/;
+
+    var lblEl = document.getElementById("email-error");
+
+    if (email != "") {
+
+        if (tekstReg.test(email)) {
+            lblEl.textContent = "";
+        }
+        else {
+            lblEl.textContent = "Email invalid";
+        }
+
+    }
+    else {
+        lblEl.textContent = "Email invalid";
+        lblEl.style.color = "red";
+    }
+}
+
+var verifyPhone = function (e) {
+    e.preventDefault();
+    var phone;
+    phone = document.getElementById("phone").value;
+
+    var lblEl = document.getElementById("phone-error");
+
+    if (phone != "") {
+        lblEl.textContent = "";
+    }
+    else {
+        lblEl.textContent = "Phone invalid";
+        lblEl.style.color = "red";
+    }
+}
+
+var verifyUsername = function (e) {
+    e.preventDefault();
+    var date;
+    date = document.getElementById("date").value;
+
+    var lblEl = document.getElementById("date-error");
+
+    if (date != "") {
+        lblEl.textContent = "";
+    }
+    else {
+        lblEl.textContent = "Data E Lindjes invalid";
+        lblEl.style.color = "red";
+    }
+}
+
+var verifyPass = function (e) {
+    e.preventDefault();
+    var pass;
+    pass = document.getElementById("password").value;
+
+    var tekstReg = /^[A-Z]+$/
+    var lblEl = document.getElementById("pass-error");
+
+    if ((pass.length > 8) && (tekstReg.test(pass.charAt(0)))) {
+
+        lblEl.textContent = "";
+    }
+    else {
+        lblEl.textContent = "Password invalid";
+        lblEl.style.color = "red";
+    }
+}
+
+document.getElementById('form').addEventListener("submit", function (e) {
+    verifyEmri(e);
+    verifyMbiemri(e);
+    verifyUsername(e);
+    verifyEmail(e);
+    verifyPhone(e);
+    verifyPass(e);
+});
 
 
 
-var v1=document.getElementById('v1')
-var v2=document.getElementById('v2')
 
-
-// console.log('v1.value+v2.value')?
-// console.log(Number(v1.value)+Number(v2.value))
-
-
-// var obj1=document.getElementById('writable').innerHTML="";

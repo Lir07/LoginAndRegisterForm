@@ -4,19 +4,21 @@ var verifyUsername = function (e) {
     username = document.getElementById("username").value;
 
     var tekstReg = /^[a-zA-Z0-9]+$/
+    var lblEl = document.getElementById("u-error");
 
     if (username != "") {
 
         if (tekstReg.test(username)) {
-            document.getElementById("u-error").textContent = "";
+            lblEl.textContent = "";
         }
         else {
-            document.getElementById("u-error").textContent = "Username invalid";
+            lblEl.textContent = "Username invalid";
         }
 
     }
     else {
-        document.getElementById("u-error").textContent = "Username invalid";
+       lblEl.textContent = "Username invalid";
+        lblEl.style.color="red";
     }
 }
 
@@ -27,11 +29,13 @@ function verifyPass(e) {
     var password;
     password = document.getElementById("password").value;
 
+    var lblEl =document.getElementById("p-error");
         if (password.length > 8) {
-            document.getElementById("p-error").textContent = "";
+            lblEl.textContent = "";
         }
         else {
-            document.getElementById("p-error").textContent = "Password invalid";
+            lblEl.textContent = "Password invalid";
+            lblEl.style.color="red";
         }
 }
 
